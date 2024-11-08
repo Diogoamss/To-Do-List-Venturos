@@ -1,13 +1,15 @@
 #list {
     display: flex;
-    width: 500px;
+    width: 550px;
     height: 650px;
     border-radius: 10px;
     background: #EFE5DF;
     box-shadow: 4px 4px 4px 0px #DFCBC0;
     margin-bottom: 20px;
     justify-content: center; 
+
 }
+
 
 #container {
     display: flex;
@@ -39,7 +41,9 @@
     background: #EFE5DF;
     box-shadow: 4px 4px 4px 0px #DFCBC0;
     margin-bottom: 3px;
+    overflow: hidden; /* Para ocultar o botão quando ele se move */
 }
+
 
 #search input[type="text"]{
     width: 385px;
@@ -59,6 +63,25 @@ body {
     background-attachment: fixed;
 
 }
+
+h2{
+
+    font-family: "Marcellus SC", serif;
+}
+
+#ListText{
+
+    margin-left: 15%;
+
+}
+
+
+.marcellus-sc-regular {
+    font-family: "Marcellus SC", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
 
 section{
 
@@ -93,10 +116,31 @@ section{
     outline: none;
     background-color: #CDAF9D;
     cursor: pointer;
-    transition: 0.4s;
+    transition: transform 0.3s ease;
 }
 
 #SendNewTask:hover{
 
     background-color: #8d6a55;
+}
+
+
+#SendNewTask.active {
+    transform: translateX(-568%); /* Move totalmente para a esquerda */
+    background-color: #8d6a55; /* Muda a cor para verde */
+}
+
+#SendNewTask .iconImage {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+}
+
+#taskInput{
+
+    margin-left: 10px;
+}
+
+#taskInput.hidden {
+    opacity: 0; /* Esconde o texto ao mover o botão */
 }

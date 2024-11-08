@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Style.css">
 </head>
 
@@ -18,7 +21,7 @@
         </div>
 
         <div id="list">
-            <h2>List</h2>
+            <p id="ListText"><h2>LIST</h2></p>
             <ul id="to-do-list"></ul>
         </div>
 
@@ -27,14 +30,16 @@
         <div id="container">
 
             <div id="done">
-                <p><h3>Done</h3></p>
+                <p id="DoneText"><h2>DONE</h2></p>
             </div>
 
             <br>
 
             <div id="search">
-                <input type="text" : placeholder="   Your Task Here...">
-                <button class="SendNewTask" id="SendNewTask" onclick="SendNewTask()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg>
+                <input type="text" : placeholder="   Your Task Here..." id="taskInput">
+                <button class="SendNewTask" id="SendNewTask" onclick="SendNewTask()">
+                    <img src="assets/chevron-left.svg" alt="seta para esquerda" id="iconImage">
+                    </span>
                 </button>
             
             </div>

@@ -1,0 +1,19 @@
+const sendButton = document.getElementById('SendNewTask');
+const iconImage = document.getElementById('iconImage');
+const taskInput = document.getElementById('taskInput');
+
+sendButton.addEventListener('click', () => {
+    // Esconde o texto
+    taskInput.classList.add('hidden');
+    
+    // Move o botão para a esquerda e troca o ícone
+    sendButton.classList.add('active');
+    iconImage.src = 'assets/check-lg.svg'; // Troca para o ícone de check
+
+    // Após 500ms, retorna o botão e o ícone ao estado inicial
+    setTimeout(() => {
+        sendButton.classList.remove('active');
+        iconImage.src = 'assets/chevron-left.svg'; // Troca de volta para o ícone de seta
+        taskInput.classList.remove('hidden'); // Mostra o texto
+    }, 1000);
+});
