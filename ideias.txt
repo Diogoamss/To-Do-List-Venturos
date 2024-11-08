@@ -6,7 +6,7 @@ ideias para o projeto:
 4-timer
 5-dispertador
 6-calendario
-
+7-sidebar
 
 ---- utilizar esse TXT como canal de comunicação interno -------------
 
