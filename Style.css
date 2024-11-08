@@ -1,12 +1,11 @@
 #list {
-    display: flex;
     width: 550px;
-    height: 650px;
+    min-height: 650px;
     border-radius: 10px;
     background: #EFE5DF;
     box-shadow: 4px 4px 4px 0px #DFCBC0;
     margin-bottom: 20px;
-    justify-content: center; 
+    justify-items: center;
 
 }
 
@@ -17,7 +16,8 @@
     align-items: flex-start;
 }
 
-#done, #search {
+#done,
+#search {
     width: 400px;
     border-radius: 10px;
     background: #EFE5DF;
@@ -27,25 +27,25 @@
 
 #done {
     height: 550px;
-    display: flex;
-    justify-content: center; 
+    justify-items: center;
 }
 
 #search {
     height: 80px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     width: 400px;
     border-radius: 10px;
     background: #EFE5DF;
     box-shadow: 4px 4px 4px 0px #DFCBC0;
     margin-bottom: 3px;
-    overflow: hidden; /* Para ocultar o botão quando ele se move */
+    overflow: hidden;
+    /* Para ocultar o botï¿½o quando ele se move */
 }
 
 
-#search input[type="text"]{
+#search input[type="text"] {
     width: 385px;
     height: 65px;
     border-radius: 10px;
@@ -64,27 +64,62 @@ body {
 
 }
 
-h2{
+h2 {
 
+    margin-bottom: 30px;
     font-family: "Marcellus SC", serif;
 }
 
-#ListText{
+#ListText {
 
     margin-left: 15%;
 
 }
 
+li {
+    background-color: red;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    min-width: 100px;
+    max-width: 500px;
+    min-height: 50px;
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    padding-left: 0px;
+    border-radius: 5px;
+    letter-spacing: 3px;
+    /* Diogo e matheus olha ai sobre o justify content*/
+    justify-content: space-between;/* Vai salvar nos na hora de colocar o lixinho e o lapis coloca uma div juntando as imagen que ele ja vai jogar pra direita :))*/
+    justify-items: start;
+    direction: ltr;  
+}
 
+ul {
+    display: flex;
+    text-align: center;
+    padding: 0px;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    max-height: 650px;      /* Define uma altura mÃ¡xima para a lista */
+    overflow-y: auto;  /* Faz com que aconteca a lista de rolagem*/
+    direction: rtl;  /* deixa a rolagem na esquerda*/
+    width: 100%;
+}
+ul #uldone{
+    max-height: 550px;
+    overflow-y: auto; 
+}
 .marcellus-sc-regular {
     font-family: "Marcellus SC", serif;
     font-weight: 400;
     font-style: normal;
 }
-  
 
-section{
 
+section {
     display: flex;
     margin-left: 50%;
     transform: translate(-50%);
@@ -94,20 +129,20 @@ section{
     gap: 10px;
 }
 
-.container img{
+.container img {
 
     margin-top: 2px;
     margin-left: 5px;
 
 }
 
-#logo_Black_semfundo{
+#logo_Black_semfundo {
 
     max-width: 320px;
     max-height: 270px;
 }
 
-#SendNewTask{
+#SendNewTask {
 
     height: 65px;
     width: 65px;
@@ -119,15 +154,17 @@ section{
     transition: transform 0.3s ease;
 }
 
-#SendNewTask:hover{
+#SendNewTask:hover {
 
     background-color: #8d6a55;
 }
 
 
 #SendNewTask.active {
-    transform: translateX(-568%); /* Move totalmente para a esquerda */
-    background-color: #8d6a55; /* Muda a cor para verde */
+    transform: translateX(-568%);
+    /* Move totalmente para a esquerda */
+    background-color: #8d6a55;
+    /* Muda a cor para verde */
 }
 
 #SendNewTask .iconImage {
@@ -136,11 +173,12 @@ section{
     color: #fff;
 }
 
-#taskInput{
+#taskInput {
 
     margin-left: 10px;
 }
 
 #taskInput.hidden {
-    opacity: 0; /* Esconde o texto ao mover o botão */
+    opacity: 0;
+    /* Esconde o texto ao mover o botï¿½o */
 }
