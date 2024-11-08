@@ -1,15 +1,19 @@
 ideias para o projeto:
 
 1-temas diferentes
-2-animações e sistema de lista funcional
+2-animaï¿½ï¿½es e sistema de lista funcional
 3-armazenamento em servidor ajax
 4-timer
 5-dispertador
 6-calendario
 7-sidebar
 
----- utilizar esse TXT como canal de comunicação interno -------------
+---- utilizar esse TXT como canal de comunicaï¿½ï¿½o interno -------------
 
 
--(Diogo) já adcionei as animações pro botão de enviar. 
-        Alias, deixar o README para atualizações do projeto para visualização.
+-(Diogo) jï¿½ adcionei as animaï¿½ï¿½es pro botï¿½o de enviar. 
+        Alias, deixar o README para atualizaï¿½ï¿½es do projeto para visualizaï¿½ï¿½o.
+        
+        -vitor:
+Guys temos que arrumar o tamanho do done quando a lista for criada :))
+â¤ğŸ’š
