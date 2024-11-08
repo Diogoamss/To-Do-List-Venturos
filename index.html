@@ -9,29 +9,38 @@
 </head>
 
 <body>
-    <div id="Agrupamento">
+    <div id="container img">
+    <img id="logo_Black_semfundo" src="assets/Logo_Black_processed.png" alt="Logotipo"><br><br>
     </div>
 
-    <div id="list">
-        <h2>List</h2>
-    </div>
+    <section>
+        <div id="Agrupamento">
+        </div>
 
-    <br>
-
-    <div id="container">
-
-        <div id="done">
-            <p><h3>Done</h3></p>
+        <div id="list">
+            <h2>List</h2>
+            <ul id="to-do-list"></ul>
         </div>
 
         <br>
 
-        <div id="search">
-            <input type="text" : placeholder="   Your Task Here...">
-        
-        </div>
+        <div id="container">
 
-    </div>
+            <div id="done">
+                <p><h3>Done</h3></p>
+            </div>
+
+            <br>
+
+            <div id="search">
+                <input type="text" : placeholder="   Your Task Here...">
+                <button class="SendNewTask" id="SendNewTask" onclick="SendNewTask()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/></svg>
+                </button>
+            
+            </div>
+
+        </div>
+    </section>
 
     <script src="Script.js"></script>
 </body>
