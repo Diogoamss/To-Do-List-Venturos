@@ -14,43 +14,30 @@
 <body>
     <div id="container img">
         <img id="logo_Black_semfundo" src="assets/Logo_Black_processed.png" alt="Logotipo"><br><br>
-        
+
     </div>
 
-    <section>
-        <div id="Agrupamento">
+    <div id="app">
+        <!-- Botão para abrir a sidebar -->
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <button class="close-btn" onclick="toggleSidebar()">✖</button>
         </div>
 
-        <div id="list">
-            <p id="ListText">
-            <h2>LIST</h2>
-            </p>
-            <ul id="to-do-list": class="ul1">
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-                <li>aa</li>
-            </ul>
-        </div>
+        <section>
+            <div id="Agrupamento">
+            </div>
 
-        <br>
-
-        <div id="container">
-
-            <div id="done">
-                <p id="DoneText">
-                <h2>DONE</h2>
+            <div id="list">
+                <p id="ListText">
+                <h2>LIST</h2>
                 </p>
-                <ul id="uldone">
+                <ul id="to-do-list" : class="ul1">
+                    <li>aa</li>
+                    <li>aa</li>
+                    <li>aa</li>
                     <li>aa</li>
                     <li>aa</li>
                     <li>aa</li>
@@ -62,20 +49,43 @@
                     <li>aa</li>
                     <li>aa</li>
                 </ul>
-            </div> 
+            </div>
 
             <br>
 
-            <div id="search">
-                <input type="text" : placeholder="   Your Task Here..." id="taskInput">
-                <button class="SendNewTask" id="SendNewTask" onclick="addItem()" >
-                    <img src="assets/chevron-left.svg" alt="seta para esquerda" id="iconImage">
-                    </span>
-                </button>
+            <div id="container">
+
+                <div id="done">
+                    <p id="DoneText">
+                    <h2>DONE</h2>
+                    </p>
+                    <ul id="uldone">
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                        <li>aa</li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <div id="search">
+                    <input type="text" : placeholder="   Your Task Here..." id="taskInput">
+                    <button class="SendNewTask" id="SendNewTask" onclick="addItem()">
+                        <img src="assets/chevron-left.svg" alt="seta para esquerda" id="iconImage">
+                        </span>
+                    </button>
+
+                </div>
 
             </div>
-
-        </div>
+    </div>
     </section>
 
     <script src="Script.js"></script>

@@ -223,3 +223,68 @@ section {
 #uldone::-webkit-scrollbar-thumb:hover {
     background-color: #cba48d; /* Cor da "pegada" ao passar o mouse */
 }
+
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background-color: #CDB2A3;
+    color: #ffffff;
+    padding-top: 20px;
+    transition: right 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar button {
+    background-color: #c0a190;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar button:hover {
+    background-color: #ad8e7d;
+}
+
+/* Botão do menu e o botão de Fechar */
+.menu-btn, .close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ffffff;
+    position: fixed;
+}
+
+.menu-btn {
+    top: 20px;
+    right: 20px;
+    padding: 5px 15px;
+    border-radius: 10%;
+    color: #ffffff;
+    background-color: #c0a190;
+    font-size: 44px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px ;
+}
+
+.close-btn {
+    align-self: flex-start;
+    margin: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.sidebar.open {
+    right: 0;
+}

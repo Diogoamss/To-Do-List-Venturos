@@ -20,3 +20,9 @@ sendButton.addEventListener('click', () => {
 function addItem() {
     console.log("Funcinoando");
 }
+
+// Função para abrir e fechar a sidebar
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
