@@ -10,7 +10,7 @@ sendButton.addEventListener('click', () => {
     sendButton.classList.add('active');
     iconImage.src = 'assets/check-lg.svg'; // Troca para o �cone de check
 
-    // Ap�s 500ms, retorna o bot�o e o �cone ao estado inicial
+    // Ap�s 1000ms, retorna o bot�o e o �cone ao estado inicial
     setTimeout(() => {
         sendButton.classList.remove('active');
         iconImage.src = 'assets/chevron-left.svg'; // Troca de volta para o �cone de seta
