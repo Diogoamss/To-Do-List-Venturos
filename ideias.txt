@@ -17,3 +17,7 @@ ideias para o projeto:
         -vitor:
 Guys temos que arrumar o tamanho do done quando a lista for criada :))
 ❤💚
+
+
+-(Diogo) para abrir um servidor local com ajax, utiliza-se o comando "npm install -g http-server"
+no terminal para baixar o http-server,  
