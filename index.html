@@ -23,7 +23,7 @@
 
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar">
-            <button class="close-btn" onclick="toggleSidebar()">✖</button>
+            <button class="close-btn" onclick="toggleSidebar()"><img src="assets/x-lg.svg" alt="close-btn"></button>
         </div>
 
         <section>
@@ -31,10 +31,11 @@
             </div>
 
             <div id="list">
-                <p id="ListText">
-                <h2>LIST</h2>
-                </p>
-                <ul id="to-do-list" : class="ul1">
+                
+                <p id="ListText"><h2>LIST</h2></p>
+                
+
+                <ul id="to-do-list"  class="ul1">
                 </ul>
             </div>
 
@@ -63,7 +64,7 @@
                 <br>
 
                 <div id="search">
-                    <input type="text" : placeholder="   Your Task Here..." id="taskInput">
+                    <input type="text"  placeholder="   Your Task Here..." id="taskInput">
                     <button class="SendNewTask" id="SendNewTask" onclick="addItem()">
                         <img src="assets/chevron-left.svg" alt="seta para esquerda" id="iconImage">
                         </span>
@@ -74,6 +75,13 @@
             </div>
     </div>
     </section>
+
+    <div id="PopUpAviso">
+
+        <button id="closePopup" onclick="closePopup(PopUpAviso)">
+            <img src="assets/x-lg.svg" alt="close-btn">
+        </button>
+    </div>
 
     <script src="Script.js"></script>
 </body>

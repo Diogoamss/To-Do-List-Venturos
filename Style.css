@@ -95,7 +95,7 @@ li {
     border-radius: 5px;
     letter-spacing: 3px;
     /* Diogo e matheus olha ai sobre o justify content*/
-    justify-content: space-between;/* Vai salvar nos na hora de colocar o lixinho e o lapis coloca uma div juntando as imagen que ele ja vai jogar pra direita :))*/
+    /*justify-content: space-between;/* Vai salvar nos na hora de colocar o lixinho e o lapis coloca uma div juntando as imagen que ele ja vai jogar pra direita :))*/
     justify-items: start;
     direction: ltr;
       
@@ -142,6 +142,7 @@ section {
     margin-top: 5px;
     margin-bottom: 106px;
     gap: 10px;
+    position: relative;
 }
 
 .container img {
@@ -179,7 +180,6 @@ section {
     transform: translateX(-568%);
     /* Move totalmente para a esquerda */
     background-color: #8d6a55;
-    /* Muda a cor para verde */
 }
 
 #SendNewTask .iconImage {
@@ -287,4 +287,78 @@ section {
 
 .sidebar.open {
     right: 0;
+}
+
+
+#PopUpAviso {
+    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    width: 400px;
+    height: 400px;
+    position: fixed; /* Fixa o popup na tela */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro exato */
+    display: none; /* Mantém escondido até ser ativado */
+    z-index: 1000; /* Define uma sobreposição alta */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#closePopup{
+
+    border: none;
+    height: 40px;
+    width: 40px;
+    background-color: #c4977bf0;
+    border-radius: 3px;
+    margin-left: 90%;
+}
+
+#editTask{
+
+    border: none;
+    background-color: #EADDD5;
+
+    margin-right: 20px;
+    margin-left: 200px;
+    transition: 0.4s;
+}
+
+#editTask:hover{
+
+    cursor: pointer;
+    background-color: #CDAF9D;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+
+#deletTask{
+
+    border: none;
+    background-color: #EADDD5;
+
+    transition: 0.4s;
+}
+
+#deletTask:hover{
+
+    cursor: pointer;
+    background-color: #CDAF9D;
+
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+
+}
+
+#ClearAll{
+
+    margin-left: 200px;
 }
