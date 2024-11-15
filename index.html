@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Slabo+27px&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Quicksand:wght@300..700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Style.css">
 </head>
 
@@ -81,6 +84,26 @@
         <button id="closePopup" onclick="closePopup(PopUpAviso)">
             <img src="assets/x-lg.svg" alt="close-btn">
         </button>
+
+        <p id="msgErro">Essa task já existe</p>
+    </div>
+
+    <div id="PopUpAviso2">
+
+        <button id="closePopup" onclick="closePopup(PopUpAviso2)">
+            <img src="assets/x-lg.svg" alt="close-btn">
+        </button>
+
+        <p id="msgErro2">Digite uma task valida</p>
+    </div>
+
+
+    <div id="PopUpAviso3">
+        <button id="closePopup" onclick="closePopup('PopUpAviso3')">
+            <img src="assets/x-lg.svg" alt="close-btn">
+        </button>
+        <input type="text" id="promptEditTask" class="promptEditTask" placeholder="Editar nome da Task:">
+        <button id="EditTaskButton" class="EditTaskButton" onclick="editTaskFromPopup()"> <img src="assets/pen.svg" alt="editar task"> </button>
     </div>
 
     <script src="Script.js"></script>

@@ -2,6 +2,8 @@
     width: 550px;
     min-height: 650px;
     max-height: 650px;
+    min-width: 400px;
+    max-width: 500px;
     border-radius: 10px;
     background: #EFE5DF;
     box-shadow: 4px 4px 4px 0px #DFCBC0;
@@ -96,8 +98,10 @@ li {
     letter-spacing: 3px;
     /* Diogo e matheus olha ai sobre o justify content*/
     /*justify-content: space-between;/* Vai salvar nos na hora de colocar o lixinho e o lapis coloca uma div juntando as imagen que ele ja vai jogar pra direita :))*/
-    justify-items: start;
+    justify-content: space-between;
+    position: relative;
     direction: ltr;
+    font-family: "Quicksand", sans-serif;
       
 
 }
@@ -131,6 +135,15 @@ ul {
     font-family: "Marcellus SC", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+
+
+.quicksand{
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
@@ -293,8 +306,9 @@ section {
 #PopUpAviso {
     background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
     width: 400px;
-    height: 400px;
+    height: 250px;
     position: fixed; /* Fixa o popup na tela */
+    position: none;
     top: 50%; /* Centraliza verticalmente */
     left: 50%; /* Centraliza horizontalmente */
     transform: translate(-50%, -50%); /* Ajusta o centro exato */
@@ -324,9 +338,6 @@ section {
 
     border: none;
     background-color: #EADDD5;
-
-    margin-right: 20px;
-    margin-left: 200px;
     transition: 0.4s;
 }
 
@@ -361,4 +372,94 @@ section {
 #ClearAll{
 
     margin-left: 200px;
+}
+
+#msgErro{
+
+    font-size: 1.5rem;
+    font-family: "Marcellus SC", serif;
+    display: flex;
+    justify-content: center;
+}
+
+#PopUpAviso2 {
+    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    width: 400px;
+    height: 250px;
+    position: fixed; /* Fixa o popup na tela */
+    position: none;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro exato */
+    display: none; /* Mantém escondido até ser ativado */
+    z-index: 1000; /* Define uma sobreposição alta */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#msgErro2{
+
+    font-size: 1.5rem;
+    font-family: "Marcellus SC", serif;
+    display: flex;
+    justify-content: center;
+}
+
+#progress{
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#divCheckbox {
+    margin-right: 10px; /* Espaço do lado direito */
+    flex-shrink: 0; /* Impede que o tamanho do checkbox seja ajustado */
+}
+
+#taskString{
+    margin-left: 10px; /* Espaço à esquerda do checkbox */
+    flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+}
+
+#buttonEdit,
+#buttonDelet {
+    margin-right: 10px; /* Espaçamento entre os botões */
+}
+
+#buttonEdit:last-child {
+    margin-right: 0; /* Remove margem no último botão */
+}
+
+#buttonEdit,
+#buttonDelet {
+    display: flex; /* Mantém os botões centralizados */
+    align-items: center;
+    justify-content: center;
+}
+
+#PopUpAviso3 {
+    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    width: 400px;
+    height: 250px;
+    position: fixed; /* Fixa o popup na tela */
+    position: none;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro exato */
+    display: none; /* Mantém escondido até ser ativado */
+    z-index: 1000; /* Define uma sobreposição alta */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
