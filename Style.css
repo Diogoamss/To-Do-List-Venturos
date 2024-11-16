@@ -239,6 +239,7 @@ section {
 
 
 .sidebar {
+    display: flex;
     width: 250px;
     height: 100vh;
     position: fixed;
@@ -248,9 +249,8 @@ section {
     color: #ffffff;
     padding-top: 20px;
     transition: right 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    z-index: 1;
 }
 
 .sidebar button {
@@ -263,6 +263,12 @@ section {
     border-radius: 5px;
 }
 
+.sidebar #Timer{
+    height: 10vh;
+    margin-left: 7vh;
+    margin-top: 15vh;
+    padding-right: 15vh;
+}
 .sidebar button:hover {
     background-color: #ad8e7d;
 }
@@ -462,4 +468,80 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+#PopUpAviso4 {
+    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    width: 400px;
+    height: 250px;
+    position: fixed; /* Fixa o popup na tela */
+    position: none;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro exato */
+    display: none; /* Mantém escondido até ser ativado */
+    z-index: 1000; /* Define uma sobreposição alta */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#Time-container{
+    margin-top: 10vh;
+    margin-left: 8vh;
+    display: flex;
+    flex-direction: row;
+    background-color: whitesmoke;
+    height: 100px;
+    width: 300px;
+    border-radius: 25px;
+}
+#items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+#display{
+        font-size: 30px;
+        margin-right: 30px;
+    color: black;
+}
+#items > button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 25px;
+}
+
+i{
+    margin-top: 2px;
+}
+#StartBtn{
+    background-color: #e4b080;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#StartBtn:hover{
+    opacity: 90%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+#resetBtn {
+    background-color: #D2B48C;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#resetBtn:hover {
+    opacity: 90%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+#resetBtn:focus{
+    background-color: #d8771c;
 }

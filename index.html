@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Quicksand:wght@300..700&family=Slabo+27px&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/74851593d1.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Slabo+27px&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="Style.css">
 </head>
 
@@ -27,6 +30,7 @@
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar">
             <button class="close-btn" onclick="toggleSidebar()"><img src="assets/x-lg.svg" alt="close-btn"></button>
+            <button id="Timer" onclick="popupAviso4()">Timer</button>
         </div>
 
         <section>
@@ -80,24 +84,24 @@
     </section>
 
     <div id="PopUpAviso">
-
-        <button id="closePopup" onclick="closePopup(PopUpAviso)">
+        
+        <button id="closePopup" onclick="closePopup('PopUpAviso')">
             <img src="assets/x-lg.svg" alt="close-btn">
         </button>
-
+        
         <p id="msgErro">Essa task já existe</p>
     </div>
-
+    
     <div id="PopUpAviso2">
-
-        <button id="closePopup" onclick="closePopup(PopUpAviso2)">
+        
+        <button id="closePopup" onclick="closePopup('PopUpAviso2')">
             <img src="assets/x-lg.svg" alt="close-btn">
         </button>
-
+        
         <p id="msgErro2">Digite uma task valida</p>
     </div>
-
-
+    
+    
     <div id="PopUpAviso3">
         <button id="closePopup" onclick="closePopup('PopUpAviso3')">
             <img src="assets/x-lg.svg" alt="close-btn">
@@ -106,6 +110,26 @@
         <button id="EditTaskButton" class="EditTaskButton" onclick="editTaskFromPopup()"> <img src="assets/pen.svg" alt="editar task"> </button>
     </div>
 
+    <div id="PopUpAviso4">
+        <button id="closePopup" onclick="closePopup('PopUpAviso4')">
+            <img src="assets/x-lg.svg" alt="close-btn">
+        </button>
+        <div id="Time-container">
+            <div id="items">
+                <div id="display">
+                    00:00
+                </div>
+                <button id="StartBtn" onclick="toggleTimer()">
+                    <i class="fa-solid fa-play" style="color: #ffffff;" id="start"></i>
+                </button>
+                <button id="resetBtn" onclick="reset()">
+                    <i class="fa-solid fa-arrow-rotate-left" style="color: #ffffff;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    
     <script src="Script.js"></script>
 </body>
 

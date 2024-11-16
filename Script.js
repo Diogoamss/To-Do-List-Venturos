@@ -154,12 +154,12 @@ function closePopup() {
     document.getElementById('PopUpAviso').style.display = 'none';
     document.getElementById('PopUpAviso2').style.display = 'none';
     document.getElementById('PopUpAviso3').style.display = 'none';
+    document.getElementById('PopUpAviso4').style.display = 'none';
 }
 
 
 function popupAviso() {
     document.getElementById('PopUpAviso').style.display = 'block';
-
 }
 
 function popupAviso2(){
@@ -168,10 +168,73 @@ function popupAviso2(){
 }
 
 function popupAviso3(){
-    document.getElementById('PopUpAviso2').style.display = 'block';
+    document.getElementById('PopUpAviso3').style.display = 'block';
 
     let newPrompt = document.getElementById('promptEditTask')
 
     return newPrompt
 
+}
+
+// Elementos do Timer
+const display = document.getElementById("display");
+const icon = document.getElementById("start");
+const button = document.getElementById("StartBtn");
+
+let comecoTimer = 0;
+let timer = 0;
+let TempoGasto = 0;
+let Funcionando = false;
+
+// Funções do Timer
+function toggleTimer() {
+    if (!Funcionando) { // Se não está funcionando, começa o timer
+        comecoTimer = Date.now() - TempoGasto; // Inicializa o timer
+        timer = setInterval(update, 10); // Atualiza a cada 10ms
+        Funcionando = true;
+
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+        button.style.backgroundColor = "#d8771c";
+    } else { // Pausa o timer
+        clearInterval(timer);
+        TempoGasto = Date.now() - comecoTimer; // Salva o tempo gasto
+        Funcionando = false;
+
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+        button.style.backgroundColor = "#e4b080";
+    }
+}
+
+function reset() {
+    clearInterval(timer); // Para o timer
+    TempoGasto = 0; // Zera o tempo
+    Funcionando = false;
+    display.textContent = "00:00";
+
+    icon.classList.remove("fa-pause");
+    icon.classList.add("fa-play");
+    button.style.backgroundColor = "#e4b080";
+}
+
+function update() {
+    const currentime = Date.now();
+    TempoGasto = currentime - comecoTimer;
+
+    let minutes = Math.floor(TempoGasto / (1000 * 60));
+    let seconds = Math.floor((TempoGasto / 1000) % 60);
+
+    minutes = String(minutes).padStart(2, '0');
+    seconds = String(seconds).padStart(2, '0');
+    display.textContent = `${minutes}:${seconds}`;
+}
+
+// Funções do Popup
+function popupAviso4() {
+    document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
+}
+
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none'; // Oculta o popup
 }
