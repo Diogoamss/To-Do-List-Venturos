@@ -345,6 +345,9 @@ section {
     border: none;
     background-color: #EADDD5;
     transition: 0.4s;
+
+    height: 35px;
+    width: 35px;
 }
 
 #editTask:hover{
@@ -352,15 +355,14 @@ section {
     cursor: pointer;
     background-color: #CDAF9D;
     border-radius: 50%;
-    height: 35px;
-    width: 35px;
 }
 
 #deletTask{
 
     border: none;
     background-color: #EADDD5;
-
+    height: 35px;
+    width: 35px;
     transition: 0.4s;
 }
 
@@ -368,9 +370,6 @@ section {
 
     cursor: pointer;
     background-color: #CDAF9D;
-
-    height: 35px;
-    width: 35px;
     border-radius: 50%;
 
 }
@@ -427,6 +426,17 @@ section {
     margin-right: 10px; /* Espaço do lado direito */
     flex-shrink: 0; /* Impede que o tamanho do checkbox seja ajustado */
 }
+#divCheckbox input[type="checkbox"] {
+    
+    height: 20px;
+    width: 35px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    text-align: left;
+    accent-color: #8d6a55e4;
+}
+
 
 #taskString{
     margin-left: 10px; /* Espaço à esquerda do checkbox */
