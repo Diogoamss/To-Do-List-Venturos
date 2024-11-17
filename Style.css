@@ -251,26 +251,37 @@ section {
     transition: right 0.3s;
     flex-direction: row;
     z-index: 1;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+
 }
 
-.sidebar button {
-    background-color: #c0a190;
-    color: #ffffff;
+.sidebar #Tema1, #Tema2, #Tema3, #Tema4, #Timer {
+    width: 200px; /* Largura dos botões relativa ao container */
+    padding: 10px;
+    background-color: #c4b0a4;
+    color: white;
     border: none;
-    padding: 10px 20px;
-    margin: 5px 20px;
-    cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .sidebar #Timer{
     height: 10vh;
-    margin-left: 7vh;
     margin-top: 15vh;
-    padding-right: 15vh;
+
 }
+
 .sidebar button:hover {
-    background-color: #ad8e7d;
+    background-color: #a58c7b;
+}
+
+.sidebar button:active {
+    background-color: #8d7465;
 }
 
 /* Botão do menu e o botão de Fechar */
@@ -306,6 +317,69 @@ section {
 
 .sidebar.open {
     right: 0;
+}
+
+/* Tema padrão */
+body.default-theme {
+    background: linear-gradient(180deg, #FBE8DD 4.5%, #D4B8A8 54.5%, #CDAF9D 100%);
+    color: black;
+}
+
+/* Tema escuro */
+body.dark-theme {
+    background: linear-gradient(180deg, #1e1e1e, #121212);
+    color: white;
+}
+
+.sidebar.dark-theme {
+    background-color: #333333;
+}
+
+.sidebar.dark-theme button {
+    background-color: #444444;
+    color: white;
+}
+
+.sidebar.dark-theme button:hover {
+    background-color: #555555;
+}
+
+/* Tema claro */
+body.light-theme {
+    background: linear-gradient(180deg, #ffffff, #e6e6e6);
+    color: black;
+}
+
+.sidebar.light-theme {
+    background-color: #f9f9f9;
+}
+
+.sidebar.light-theme button {
+    background-color: #dedede;
+    color: black;
+}
+
+.sidebar.light-theme button:hover {
+    background-color: #cfcfcf;
+}
+
+/* Tema azul */
+body.blue-theme {
+    background: linear-gradient(180deg, #003366, #6699cc);
+    color: white;
+}
+
+.sidebar.blue-theme {
+    background-color: #00509e;
+}
+
+.sidebar.blue-theme button {
+    background-color: #0066cc;
+    color: white;
+}
+
+.sidebar.blue-theme button:hover {
+    background-color: #007acc;
 }
 
 

@@ -238,3 +238,17 @@ function popupAviso4() {
 function closePopup(popupId) {
     document.getElementById(popupId).style.display = 'none'; // Oculta o popup
 }
+
+function changeTheme(theme) {
+    const body = document.body;
+    const sidebar = document.getElementById('sidebar');
+    
+    // Remove todas as classes de temas
+    body.className = '';
+    sidebar.className = 'sidebar';
+
+    // Adiciona as novas classes de tema
+    body.classList.add(`${theme}-theme`);
+    sidebar.classList.add(`${theme}-theme`);
+}
+
