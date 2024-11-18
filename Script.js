@@ -34,6 +34,7 @@ function addItem() {
     }
     else{
         //adicionar no localStorage:
+        
 
         let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
         values.push({
@@ -55,7 +56,7 @@ function showValues() {
         list.innerHTML += `
             <li>
                 <div id="divCheckbox">
-                    <input type="checkbox" id="progress" class="progress">
+                    <input type="checkbox" id="progress" class="progress" onchange="moveTask(this)">
                 </div>
 
                 <div id="taskString">
@@ -75,6 +76,22 @@ function showValues() {
                 </div>
             </li>`;
     }
+
+    attachEventListeners()
+}
+
+function attachEventListeners() {
+    // Reassociando eventos de edição
+    const editButtons = document.querySelectorAll('.editTask');
+    editButtons.forEach(button => {
+        button.addEventListener('click', () => editTask(button.dataset.name));
+    });
+
+    // Reassociando eventos de exclusão
+    const deleteButtons = document.querySelectorAll('.deletTask');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => deletTask(button.dataset.name));
+    });
 }
 
 showValues()
@@ -90,51 +107,56 @@ function validateIfExistNewTask(){
 
 //função para deletar task
 
-function deletTask(data){
+function deletTask(data) {
+    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
 
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let index = values.findIndex(x => x.name == data)
-    values.splice(index,1)
-    localStorage.setItem(localStorageKey,JSON.stringify(values))
-    showValues()
-
+    // Encontre o índice da tarefa a ser excluída com base no nome único
+    let index = values.findIndex(x => x.name === data);
+    
+    if (index !== -1) {
+        values.splice(index, 1); // Remove a tarefa da lista
+        localStorage.setItem(localStorageKey, JSON.stringify(values)); // Atualiza o localStorage
+        showValues(); // Atualiza a lista de tarefas
+    }
 }
 
-// Função para editar a tarefa
+
 function editTask(data) {
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
     let index = values.findIndex(x => x.name === data);
 
     if (index === -1) {
-        popupAviso2();
+        popupAviso2(); // Mostra aviso se a tarefa não for encontrada
         return;
     }
 
     document.getElementById('PopUpAviso3').style.display = 'block';
     const inputEdit = document.getElementById('promptEditTask');
     inputEdit.value = data; // Preenche o input com o valor atual da tarefa
+    inputEdit.setAttribute('data-old-name', data); // Armazena o nome antigo no atributo `data`
 }
+
 
 // Função chamada ao confirmar a edição
 function editTaskFromPopup() {
     const inputEdit = document.getElementById('promptEditTask');
     const newName = inputEdit.value.trim();
+    const oldName = inputEdit.getAttribute('data-old-name'); // Recupera o nome antigo
 
     if (!newName) {
-        popupAviso2();
+        popupAviso2(); // Mostra aviso se o nome estiver vazio
         return;
     }
 
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
-    let index = values.findIndex(x => x.name === newName);
 
-    if (index !== -1) {
-        popupAviso(); // Tarefa já existe
+    // Verifica se o novo nome já existe, excluindo o nome antigo
+    if (values.some(x => x.name === newName && x.name !== oldName)) {
+        popupAviso(); // Mostra aviso se a tarefa já existir
         return;
     }
 
     // Atualiza a tarefa no localStorage
-    const oldName = document.getElementById('promptEditTask').value;
     let taskIndex = values.findIndex(x => x.name === oldName);
     values[taskIndex].name = newName;
     localStorage.setItem(localStorageKey, JSON.stringify(values));
@@ -252,3 +274,26 @@ function changeTheme(theme) {
     sidebar.classList.add(`${theme}-theme`);
 }
 
+
+//função para mover task prontas para #uldone
+function moveTask(checkbox){
+
+    const taskMarked = checkbox.closest('li')
+    const editButton = taskMarked.querySelector('.editTask')
+
+    if(checkbox.checked) {
+
+        if(editButton){
+
+            editButton.style.display = 'none'
+        }
+        document.querySelector('#uldone').appendChild(taskMarked)
+    }else{
+
+        if(editButton){
+
+            editButton.style.display = 'block'
+        }
+        document.querySelector('#to-do-list').appendChild(taskMarked)
+    }
+}
