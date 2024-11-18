@@ -118,10 +118,11 @@ function deletTask(data) {
         localStorage.setItem(localStorageKey, JSON.stringify(values)); // Atualiza o localStorage
         showValues(); // Atualiza a lista de tarefas
     }
+    showValues();
 }
 
 
-function editTask(data) {
+/*function editTask(data) {
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
     let index = values.findIndex(x => x.name === data);
 
@@ -135,7 +136,7 @@ function editTask(data) {
     inputEdit.value = data; // Preenche o input com o valor atual da tarefa
     inputEdit.setAttribute('data-old-name', data); // Armazena o nome antigo no atributo `data`
 }
-
+*/
 
 // Função chamada ao confirmar a edição
 function editTaskFromPopup() {
@@ -181,15 +182,47 @@ function closePopup() {
 
 
 function popupAviso() {
+    body.innerHTML+=
+    `<div id="PopUpAviso">
+        
+        <button id="closePopup" onclick="closePopup('PopUpAviso')">
+            X
+        </button>
+        
+        <p id="msgErro">Essa task já existe</p>
+    </div>
+    `
+
     document.getElementById('PopUpAviso').style.display = 'block';
 }
 
 function popupAviso2(){
+    body.innerHTML+=
+    `<div id="PopUpAviso2">
+        
+        <button id="closePopup" onclick="closePopup('PopUpAviso2')">
+            X
+        </button>
+        
+        <p id="msgErro2">Digite uma task valida</p>
+    </div>
+    `
+
     document.getElementById('PopUpAviso2').style.display = 'block';
 
 }
 
 function popupAviso3(){
+    body.innerHTML+=
+    `<div id="PopUpAviso3">
+        <button id="closePopup" onclick="closePopup('PopUpAviso3')">
+            X
+        </button>
+        <input type="text" id="promptEditTask" class="promptEditTask" placeholder="Editar nome da Task:">
+        <button id="EditTaskButton" class="EditTaskButton" onclick="editTaskFromPopup()">🖉</button>
+    </div>
+    `
+    
     document.getElementById('PopUpAviso3').style.display = 'block';
 
     let newPrompt = document.getElementById('promptEditTask')
@@ -254,6 +287,23 @@ function update() {
 
 // Funções do Popup
 function popupAviso4() {
+    body.innerHTML+=
+    `<div id="Time-container">
+            <div id="items">
+                <div id="display">
+                    00:00
+                </div>
+                <button id="StartBtn" onclick="toggleTimer()">
+                    <i class="fa-solid fa-play" style="color: #ffffff;" id="start"></i>
+                </button>
+                <button id="resetBtn" onclick="reset()">
+                    <i class="fa-solid fa-arrow-rotate-left" style="color: #ffffff;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    `
+
     document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
 }
 
