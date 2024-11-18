@@ -264,14 +264,17 @@ function closePopup(popupId) {
 function changeTheme(theme) {
     const body = document.body;
     const sidebar = document.getElementById('sidebar');
+    const search = document.getElementById('search');
     
     // Remove todas as classes de temas
     body.className = '';
     sidebar.className = 'sidebar';
+    search.className = 'search';
 
     // Adiciona as novas classes de tema
     body.classList.add(`${theme}-theme`);
     sidebar.classList.add(`${theme}-theme`);
+    search.classList.add(`${theme}-theme`);
 }
 
 

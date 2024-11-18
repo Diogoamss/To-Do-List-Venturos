@@ -6,7 +6,7 @@
     max-width: 500px;
     border-radius: 10px;
     background: #EFE5DF;
-    box-shadow: 4px 4px 4px 0px #DFCBC0;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     justify-items: center;
     direction: rtl;
@@ -25,7 +25,7 @@
     width: 400px;
     border-radius: 10px;
     background: #EFE5DF;
-    box-shadow: 4px 4px 4px 0px #DFCBC0;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
     margin-bottom: 3px;
 }
 
@@ -43,7 +43,7 @@
     width: 400px;
     border-radius: 10px;
     background: #EFE5DF;
-    box-shadow: 4px 4px 4px 0px #DFCBC0;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
     margin-bottom: 3px;
     overflow: hidden;
     /* Para ocultar o botï¿½o quando ele se move */
@@ -258,22 +258,30 @@ section {
 
 }
 
-.sidebar #Tema1, #Tema2, #Tema3, #Tema4, #Timer {
+.sidebar #Tema1, #Tema2, #Tema3, #Tema4, #Tema5, #Timer {
     width: 200px; /* Largura dos botões relativa ao container */
     padding: 10px;
-    background-color: #c4b0a4;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.5);
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+.sidebar #Tema1:hover, #Tema2:hover, #Tema3:hover, #Tema4:hover, #Tema5:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .sidebar #Timer{
     height: 10vh;
     margin-top: 15vh;
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
+.sidebar #Timer:hover {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar button:hover {
@@ -290,6 +298,7 @@ section {
     cursor: pointer;
     background: none;
     border: none;
+    border-radius: 10%;
     color: #ffffff;
     position: fixed;
 }
@@ -299,8 +308,8 @@ section {
     right: 20px;
     padding: 5px 15px;
     border-radius: 10%;
-    color: #ffffff;
-    background-color: #c0a190;
+    color: #a8a6a6;
+    background-color: rgba(255, 255, 255, 0.1);
     font-size: 44px;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px ;
 }
@@ -328,7 +337,7 @@ body.default-theme {
 /* Tema escuro */
 body.dark-theme {
     background: linear-gradient(180deg, #1e1e1e, #121212);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .sidebar.dark-theme {
@@ -336,17 +345,22 @@ body.dark-theme {
 }
 
 .sidebar.dark-theme button {
-    background-color: #444444;
-    color: white;
+    background-color: #333333;
+    color: rgb(255, 255, 255);
 }
 
 .sidebar.dark-theme button:hover {
-    background-color: #555555;
+    background-color: #444444;
 }
+
+.search.dark-theme #SendNewTask {
+    background-color: #353333;
+}
+
 
 /* Tema claro */
 body.light-theme {
-    background: linear-gradient(180deg, #ffffff, #e6e6e6);
+    background: linear-gradient(180deg, #ffe3e3, #ffe0e0);
     color: black;
 }
 
@@ -355,18 +369,25 @@ body.light-theme {
 }
 
 .sidebar.light-theme button {
-    background-color: #dedede;
+    background-color: #f9f9f9;
     color: black;
 }
 
+
 .sidebar.light-theme button:hover {
-    background-color: #cfcfcf;
+    background-color: #dedede;
 }
+
+.search.light-theme #SendNewTask {
+    background-color: #ccb0b0;
+}
+
+
 
 /* Tema azul */
 body.blue-theme {
     background: linear-gradient(180deg, #003366, #6699cc);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .sidebar.blue-theme {
@@ -374,17 +395,44 @@ body.blue-theme {
 }
 
 .sidebar.blue-theme button {
-    background-color: #0066cc;
+    background-color: #00509e;
     color: white;
 }
 
 .sidebar.blue-theme button:hover {
-    background-color: #007acc;
+    background-color: #0066cc;
+}
+
+.search.blue-theme #SendNewTask {
+    background-color: #75adf5;
+}
+
+/* Tema Roxo */
+body.purple-theme {
+    background: linear-gradient(180deg, #ad5be4, #7d19b8);
+    color: rgb(0, 0, 0);
+}
+
+.sidebar.purple-theme {
+    background-color: #470864;
+}
+
+.sidebar.purple-theme button {
+    background-color: #470864;
+    color: white;
+}
+
+.sidebar.purple-theme button:hover {
+    background-color: #5a137a;
+}
+
+.search.purple-theme #SendNewTask {
+    background-color: #903ab3;
 }
 
 
 #PopUpAviso {
-    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    background-color: rgb(46, 44, 44); /* Cor de fundo com opacidade para dar um efeito de overlay */
     width: 400px;
     height: 250px;
     position: fixed; /* Fixa o popup na tela */
@@ -404,14 +452,47 @@ body.blue-theme {
     justify-content: center;
 }
 
-#closePopup{
-
+#promptEditTask{
+    width: 320px;
+    height: 20px;
+    border-radius: 10px;
     border: none;
-    height: 40px;
-    width: 40px;
-    background-color: #c4977bf0;
+    outline: none;
+    font-size: 16px;
+    text-align: left;
+}
+
+#closePopup{
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    background-color: #242121f0;
     border-radius: 3px;
     margin-left: 90%;
+}
+
+#EditTaskButton{
+    color: white;
+    border: none;
+    background-color: rgb(46, 44, 44);
+    transition: 0.4s;
+
+    height: 35px;
+    width: 35px;
+}
+
+#EditTaskButton:hover{
+
+    cursor: pointer;
+    background-color: rgb(61, 57, 57);
+    border-radius: 50%;
 }
 
 #editTask{
@@ -462,7 +543,7 @@ body.blue-theme {
 }
 
 #PopUpAviso2 {
-    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    background-color: rgb(46, 44, 44);/* Cor de fundo com opacidade para dar um efeito de overlay */
     width: 400px;
     height: 250px;
     position: fixed; /* Fixa o popup na tela */
@@ -534,9 +615,9 @@ body.blue-theme {
 }
 
 #PopUpAviso3 {
-    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    background-color: rgb(46, 44, 44); /* Cor de fundo com opacidade para dar um efeito de overlay */
     width: 400px;
-    height: 250px;
+    height: 50px;
     position: fixed; /* Fixa o popup na tela */
     position: none;
     top: 50%; /* Centraliza verticalmente */
@@ -553,12 +634,12 @@ body.blue-theme {
     align-items: center;
     justify-content: center;
 }
+
 #PopUpAviso4 {
-    background-color: #8d6a55e4; /* Cor de fundo com opacidade para dar um efeito de overlay */
+    background-color: rgb(46, 44, 44); /* Cor de fundo com opacidade para dar um efeito de overlay */
     width: 400px;
     height: 250px;
     position: fixed; /* Fixa o popup na tela */
-    position: none;
     top: 50%; /* Centraliza verticalmente */
     left: 50%; /* Centraliza horizontalmente */
     transform: translate(-50%, -50%); /* Ajusta o centro exato */
@@ -574,25 +655,26 @@ body.blue-theme {
     justify-content: center;
 }
 #Time-container{
-    margin-top: 10vh;
-    margin-left: 8vh;
     display: flex;
     flex-direction: row;
-    background-color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(66, 59, 59);
     height: 100px;
     width: 300px;
     border-radius: 25px;
 }
+
 #items{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
 }
 #display{
         font-size: 30px;
         margin-right: 30px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 #items > button {
     border: none;
@@ -616,7 +698,7 @@ i{
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 #resetBtn {
-    background-color: #D2B48C;
+    background-color: #e46060;
     cursor: pointer;
     transition: box-shadow 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -627,5 +709,5 @@ i{
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 #resetBtn:focus{
-    background-color: #d8771c;
+    background-color: #ca5959;
 }
