@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Marcellus SC", serif;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+section{
+    width:100%;
+    height: 100vh;
+    position: relative;
+    overflow-y: hidden;
+}
+
+section div.background{
+    width:100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 0;
+}
+
+section div.background video{
+    width:100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+section div.box{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section div.box div.content{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section div.box img{
+    height: 500px;
+    width: 500px;
+}
+
+section div.box button{
+    padding: 20px;
+    width: 240px;
+    border-radius: 30px;
+    border: none;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+
+@media screen and (max-width: 1024px){
+    section div.box{
+        width: 100%;
+        padding: 2%;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    section div.box div.content{
+        width: 100%;
+    }
+}
