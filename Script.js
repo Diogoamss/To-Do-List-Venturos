@@ -50,33 +50,38 @@ function addItem() {
 
 function showValues() {
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
-    let list = document.getElementById('to-do-list');
-    list.innerHTML = '';
-    for (let i = 0; i < values.length; i++) {
-        list.innerHTML += `
-            <li>
+
+    const toDoList = document.getElementById('to-do-list');
+    const doneList = document.getElementById('uldone');
+
+    toDoList.innerHTML = '';
+    doneList.innerHTML = '';
+
+    values.forEach(task => {
+        const taskElement = `
+            <li data-name="${task.name}">
                 <div id="divCheckbox">
-                    <input type="checkbox" id="progress" class="progress" onchange="moveTask(this)">
+                    <input type="checkbox" class="progress" onchange="moveTask(this)" ${task.done ? 'checked' : ''}>
                 </div>
-
-                <div id="taskString">
-                    ${values[i]['name']}
-                </div>
-
+                <div id="taskString">${task.name}</div>
                 <div id="buttonEdit">
-                    <button id='editTask' class='editTask' onclick='editTask("${values[i]['name']}")'>
+                    <button class="editTask" id="editTask" onclick='editTask("${task.name}")'>
                         <img src="assets/pen.svg" alt="Editar">
                     </button>
                 </div>
-
                 <div id="buttonDelet">
-                    <button id='deletTask' class='deletTask' onclick='deletTask("${values[i]['name']}")'>
+                    <button class="deletTask" id="deletTask" onclick='deletTask("${task.name}")'>
                         <img src="assets/trash3.svg" alt="Deletar">
                     </button>
                 </div>
             </li>`;
-    }
 
+        if (task.done) {
+            doneList.innerHTML += taskElement;
+        } else {
+            toDoList.innerHTML += taskElement;
+        }
+    });
     attachEventListeners()
 }
 
@@ -107,22 +112,25 @@ function validateIfExistNewTask(){
 
 //função para deletar task
 
-function deletTask(data) {
+function deletTask(taskName) {
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
 
-    // Encontre o índice da tarefa a ser excluída com base no nome único
-    let index = values.findIndex(x => x.name === data);
-    
-    if (index !== -1) {
-        values.splice(index, 1); // Remove a tarefa da lista
-        localStorage.setItem(localStorageKey, JSON.stringify(values)); // Atualiza o localStorage
-        showValues(); // Atualiza a lista de tarefas
+    // Filtra para excluir a tarefa correspondente
+    values = values.filter(task => task.name !== taskName);
+
+    // Atualiza o localStorage
+    localStorage.setItem(localStorageKey, JSON.stringify(values));
+
+    // Remove a tarefa do DOM
+    const taskElement = document.querySelector(`li[data-name="${taskName}"]`);
+    if (taskElement) {
+        taskElement.remove();
     }
-    showValues();
+    showValues()
 }
 
 
-/*function editTask(data) {
+function editTask(data) {
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
     let index = values.findIndex(x => x.name === data);
 
@@ -136,7 +144,7 @@ function deletTask(data) {
     inputEdit.value = data; // Preenche o input com o valor atual da tarefa
     inputEdit.setAttribute('data-old-name', data); // Armazena o nome antigo no atributo `data`
 }
-*/
+
 
 // Função chamada ao confirmar a edição
 function editTaskFromPopup() {
@@ -173,56 +181,17 @@ function toggleSidebar() {
 
 //funções para abrir e fchar pop-ups
 
-function closePopup() {
-    document.getElementById('PopUpAviso').style.display = 'none';
-    document.getElementById('PopUpAviso2').style.display = 'none';
-    document.getElementById('PopUpAviso3').style.display = 'none';
-    document.getElementById('PopUpAviso4').style.display = 'none';
-}
-
 
 function popupAviso() {
-    body.innerHTML+=
-    `<div id="PopUpAviso">
-        
-        <button id="closePopup" onclick="closePopup('PopUpAviso')">
-            X
-        </button>
-        
-        <p id="msgErro">Essa task já existe</p>
-    </div>
-    `
-
     document.getElementById('PopUpAviso').style.display = 'block';
 }
 
 function popupAviso2(){
-    body.innerHTML+=
-    `<div id="PopUpAviso2">
-        
-        <button id="closePopup" onclick="closePopup('PopUpAviso2')">
-            X
-        </button>
-        
-        <p id="msgErro2">Digite uma task valida</p>
-    </div>
-    `
-
     document.getElementById('PopUpAviso2').style.display = 'block';
 
 }
 
 function popupAviso3(){
-    body.innerHTML+=
-    `<div id="PopUpAviso3">
-        <button id="closePopup" onclick="closePopup('PopUpAviso3')">
-            X
-        </button>
-        <input type="text" id="promptEditTask" class="promptEditTask" placeholder="Editar nome da Task:">
-        <button id="EditTaskButton" class="EditTaskButton" onclick="editTaskFromPopup()">🖉</button>
-    </div>
-    `
-    
     document.getElementById('PopUpAviso3').style.display = 'block';
 
     let newPrompt = document.getElementById('promptEditTask')
@@ -287,83 +256,64 @@ function update() {
 
 // Funções do Popup
 function popupAviso4() {
-    body.innerHTML+=
-    `<div id="Time-container">
-            <div id="items">
-                <div id="display">
-                    00:00
-                </div>
-                <button id="StartBtn" onclick="toggleTimer()">
-                    <i class="fa-solid fa-play" style="color: #ffffff;" id="start"></i>
-                </button>
-                <button id="resetBtn" onclick="reset()">
-                    <i class="fa-solid fa-arrow-rotate-left" style="color: #ffffff;"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    `
-
     document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
 }
 
+
 function closePopup(popupId) {
-    document.getElementById(popupId).style.display = 'none'; // Oculta o popup
+    document.getElementById(popupId).style.display = 'none' // Oculta o popup
 }
+
 
 function changeTheme(theme) {
     const body = document.body;
     const sidebar = document.getElementById('sidebar');
     const search = document.getElementById('search');
-    const popupAviso= document.getElementById('PopUpAviso');
-    const popupAviso2= document.getElementById('PopUpAviso2');
-    const popupAviso3= document.getElementById('PopUpAviso3');
-    const popupAviso4= document.getElementById('PopUpAviso4');
+
     
     // Remove todas as classes de temas
     body.className = '';
     sidebar.className = 'sidebar';
     search.className = 'search';
-    popupAviso.className ='popupAviso';
-    popupAviso2.className ='popupAviso2';
-    popupAviso3.className ='popupAviso3';
-    popupAviso4.className ='popupAviso4';
 
     // Adiciona as novas classes de tema
     body.classList.add(`${theme}-theme`);
     sidebar.classList.add(`${theme}-theme`);
     search.classList.add(`${theme}-theme`);
-    popupAviso.classList.add(`${theme}-theme`);
-    popupAviso2.classList.add(`${theme}-theme`);
-    popupAviso3.classList.add(`${theme}-theme`);
-    popupAviso4.classList.add(`${theme}-theme`);
+
 }
 
 
 
 
 //função para mover task prontas para #uldone
-function moveTask(checkbox){
+function moveTask(checkbox) {
+    const taskElement = checkbox.closest('li'); // Encontra o elemento pai do checkbox
+    const taskName = taskElement.getAttribute('data-name'); // Obt�m o nome da tarefa
 
-    const taskMarked = checkbox.closest('li')
-    const editButton = taskMarked.querySelector('.editTask')
+    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
 
-    if(checkbox.checked) {
+    // Atualiza o campo "done" da tarefa
+    const task = values.find(task => task.name === taskName);
+    if (task) {
+        task.done = checkbox.checked;
+    }
 
-        if(editButton){
+    // Atualiza o localStorage
+    localStorage.setItem(localStorageKey, JSON.stringify(values));
 
-            editButton.style.display = 'none'
-        }
-        document.querySelector('#uldone').appendChild(taskMarked)
+    // Esconde o bot�o de edi��o para a tarefa atual
+    const editButton = taskElement.querySelector('.editTask'); // Seleciona o bot�o de edi��o dentro do taskElement
+    if (editButton) {
+        editButton.style.display = 'none'; // Oculta o bot�o
     }else{
 
-        if(editButton){
-
-            editButton.style.display = 'block'
-        }
-        document.querySelector('#to-do-list').appendChild(taskMarked)
+        editButton.style.display = 'block'
     }
+
+    showValues(); // Atualiza a interface
 }
+
 
 
 

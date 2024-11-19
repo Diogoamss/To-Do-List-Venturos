@@ -24,8 +24,8 @@
     </div>
 
     <div id="app">
-        <!-- Botão para abrir a sidebar -->
-        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <!-- BotÃ£o para abrir a sidebar -->
+        <button class="menu-btn" onclick="toggleSidebar()"><img src="assets/menu.svg" alt="Side bar"></button>
 
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar">
@@ -104,6 +104,53 @@
             <button class="Alarmbtn">Ativar Alarme</button>
         </div>
     </div>
+    
+    <div id="PopUpAviso">
+        
+        <button id="closePopup" onclick="closePopup('PopUpAviso')">
+            <img src="assets/x-lg.svg" alt="Fechar">
+        </button>
+        
+        <p id="msgErro">Essa task já existe</p>
+    </div>
+    
+    <div id="PopUpAviso2">
+        
+        <button id="closePopup" onclick="closePopup('PopUpAviso2')">
+            <img src="assets/x-lg.svg" alt="Fechar">
+        </button>
+        
+        <p id="msgErro2">Digite uma task valida</p>
+    </div>
+    
+    
+    <div id="PopUpAviso3">
+        <button id="closePopup" onclick="closePopup('PopUpAviso3')">
+            <img src="assets/x-lg.svg" alt="Fechar">
+        </button>
+        <input type="text" id="promptEditTask" class="promptEditTask" placeholder="Editar nome da Task:">
+        <button id="EditTaskButton" class="EditTaskButton" onclick="editTaskFromPopup()">🖉</button>
+    </div>
+
+    <div id="PopUpAviso4">
+        <button id="closePopup" onclick="closePopup('PopUpAviso4')">
+            <img src="assets/x-lg.svg" alt="Fechar">
+        </button>
+        <div id="Time-container">
+            <div id="items">
+                <div id="display">
+                    00:00
+                </div>
+                <button id="StartBtn" onclick="toggleTimer()">
+                    <i class="fa-solid fa-play" style="color: #ffffff;" id="start"></i>
+                </button>
+                <button id="resetBtn" onclick="reset()">
+                    <i class="fa-solid fa-arrow-rotate-left" style="color: #ffffff;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
     
     
     <script src="Script.js"></script>
