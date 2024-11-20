@@ -199,6 +199,12 @@ function popupAviso3(){
     return newPrompt
 
 }
+function popupAviso4() {
+    document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
+}
+function popupAviso5() {
+    document.getElementById('PopUpAviso5').style.display = 'block'; // Mostra o popup
+}
 
 // Elementos do Timer
 const display = document.getElementById("display");
@@ -254,10 +260,6 @@ function update() {
     display.textContent = `${minutes}:${seconds}`;
 }
 
-// Funções do Popup
-function popupAviso4() {
-    document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
-}
 
 
 function closePopup(popupId) {
