@@ -761,7 +761,7 @@ button#close{
 
 #Time-container {
     display: flex;
-    margin-top: 10vh;
+    margin-top: 7vh;
     justify-content: center;
     justify-self: center;
     flex-direction: row;

@@ -200,10 +200,10 @@ function popupAviso3(){
 
 }
 function popupAviso4() {
-    document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
+    document.getElementById('PopUpAviso4').style.display = 'block';
 }
 function popupAviso5() {
-    document.getElementById('PopUpAviso5').style.display = 'block'; // Mostra o popup
+    document.getElementById('PopUpAviso5').style.display = 'block';
 }
 
 // Elementos do Timer
