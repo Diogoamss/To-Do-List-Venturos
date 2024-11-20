@@ -199,12 +199,6 @@ function popupAviso3(){
     return newPrompt
 
 }
-function popupAviso4() {
-    document.getElementById('PopUpAviso4').style.display = 'block';
-}
-function popupAviso5() {
-    document.getElementById('PopUpAviso5').style.display = 'block';
-}
 
 // Elementos do Timer
 const display = document.getElementById("display");
@@ -260,10 +254,20 @@ function update() {
     display.textContent = `${minutes}:${seconds}`;
 }
 
-
+function popupAviso4() {
+    document.getElementById('PopUpAviso4').style.display = 'block'; // Mostra o popup
+}
+function popupAviso5() {
+    document.getElementById('PopUpAviso5').style.display = 'block'; // Mostra o popup
+}
 
 function closePopup(popupId) {
-    document.getElementById(popupId).style.display = 'none' // Oculta o popup
+    if (popupId) {
+        const popups = document.querySelectorAll('[id^="PopUp"]');
+        popups.forEach(popup => {
+            popup.style.display = 'none';
+        });
+    }
 }
 
 
